@@ -32,6 +32,51 @@ a {
   text-decoration: none;
 }
 
+.access-locked > :not(.access-gate) {
+  visibility: hidden;
+}
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.access-box {
+  width: min(440px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 5vw, 36px);
+}
+
+.access-box h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.2rem, 7vw, 3.6rem);
+  line-height: 1;
+}
+
+.access-box p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.access-box label {
+  margin: 18px 0 14px;
+}
+
+.access-error {
+  min-height: 1.4em;
+  margin: 12px 0 0;
+  color: var(--red) !important;
+  font-weight: 750;
+}
+
 button,
 input,
 select,
