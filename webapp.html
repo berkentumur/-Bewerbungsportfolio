@@ -1,0 +1,145 @@
+﻿<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Eigenständige IT-Support Ticket App mit Suche, Filtern, Detailansicht und Notizen."
+    />
+    <title>IT Desk | Support Ticket App</title>
+    <link rel="stylesheet" href="webapp.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="projekt.html" aria-label="Zur Projektbeschreibung">
+        <span class="brand-mark">IT</span>
+        <span>IT Desk</span>
+      </a>
+      <nav class="top-actions" aria-label="App Navigation">
+        <a href="projekt.html">Projektbeschreibung</a>
+        <a href="index.html">Portfolio</a>
+      </nav>
+    </header>
+
+    <main class="app-layout">
+      <section class="hero-panel">
+        <div>
+          <p class="eyebrow">Support Ticket System</p>
+          <h1>Probleme erfassen. Priorisieren. Lösen.</h1>
+          <p>
+            Eine eigenständige Web-App mit lokaler Speicherung, Suche, Filtern,
+            Detailansicht und Notizen pro Ticket.
+          </p>
+        </div>
+        <div class="summary-grid" aria-label="Ticket Übersicht">
+          <article>
+            <strong id="totalTickets">0</strong>
+            <span>Total</span>
+          </article>
+          <article>
+            <strong id="openTickets">0</strong>
+            <span>Offen</span>
+          </article>
+          <article>
+            <strong id="progressTickets">0</strong>
+            <span>In Arbeit</span>
+          </article>
+          <article>
+            <strong id="doneTickets">0</strong>
+            <span>Erledigt</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="ticket-composer" aria-label="Neues Ticket erstellen">
+          <div class="panel-heading">
+            <p class="eyebrow">Neues Ticket</p>
+            <h2>Problem melden</h2>
+          </div>
+
+          <form id="ticketForm">
+            <label>
+              Titel
+              <input id="titleInput" type="text" placeholder="z.B. WLAN verbindet nicht" required />
+            </label>
+            <label>
+              Beschreibung
+              <textarea
+                id="descriptionInput"
+                placeholder="Kurz beschreiben, was passiert und seit wann."
+                required
+              ></textarea>
+            </label>
+            <div class="form-grid">
+              <label>
+                Kategorie
+                <select id="categoryInput">
+                  <option>Netzwerk</option>
+                  <option>Gerät</option>
+                  <option>Konto</option>
+                  <option>Software</option>
+                  <option>Drucker</option>
+                </select>
+              </label>
+              <label>
+                Priorität
+                <select id="priorityInput">
+                  <option>Normal</option>
+                  <option>Hoch</option>
+                  <option>Niedrig</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              Zuständig
+              <input id="ownerInput" type="text" placeholder="z.B. Berken" value="Berken" />
+            </label>
+            <button class="button primary" type="submit">Ticket erstellen</button>
+          </form>
+
+          <button class="button ghost" id="resetButton" type="button">Beispieldaten zurücksetzen</button>
+        </aside>
+
+        <section class="ticket-board">
+          <div class="controls">
+            <label class="search-box">
+              Suche
+              <input id="searchInput" type="search" placeholder="Ticket suchen..." />
+            </label>
+            <label>
+              Status
+              <select id="statusFilter">
+                <option value="Alle">Alle</option>
+                <option>Offen</option>
+                <option>In Arbeit</option>
+                <option>Erledigt</option>
+              </select>
+            </label>
+            <label>
+              Priorität
+              <select id="priorityFilter">
+                <option value="Alle">Alle</option>
+                <option>Hoch</option>
+                <option>Normal</option>
+                <option>Niedrig</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="board-grid">
+            <div class="ticket-list" id="ticketList" aria-live="polite"></div>
+
+            <article class="ticket-detail" id="ticketDetail">
+              <p class="empty-detail">Wähle ein Ticket aus, um Details zu sehen.</p>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="webapp.js"></script>
+  </body>
+</html>
+
