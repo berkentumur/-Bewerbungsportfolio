@@ -361,15 +361,6 @@ article p {
   padding: clamp(22px, 4vw, 34px);
 }
 
-.project-screenshot {
-  width: 100%;
-  max-width: 700px;
-  margin: 20px 0;
-  border: 1px solid rgba(25, 26, 29, 0.1);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-
 .project-preview p {
   color: var(--muted);
   line-height: 1.7;
